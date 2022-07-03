@@ -8,7 +8,9 @@ weight: 3
 # **About Me**
 
 Hi I am **{{ site.author.name }}** :wave:,<br>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+Native Android Engineer with experience in developing applications for E-Commerce, Mobile Device Management, Apartment Society Management and working on the Android DevicePolicyManager Framework. Skilled in Android, Kotlin,Coroutines, Jetpack Compose, Java, CI/CD, Data Structures, Algorithms and Design patterns. familiar with the most recent Android architectures and frameworks.
+
 
 <div class="row">
 {% include about/skills.html title="Programming Skills" source=site.data.programming-skills %}
