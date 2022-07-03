@@ -12,8 +12,8 @@ open_new_tab        : false                             # Opens external URLs in
 
 
 ### Plugins ###
-#plugins:
-#  - jemoji
+plugins:
+  - jemoji
 
 
 ### Navbar Settings ###
