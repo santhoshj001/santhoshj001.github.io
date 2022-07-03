@@ -2,9 +2,10 @@
 incremental         : true
 title               : Santhosh J 
 description         : >-
-                     Native Android Engineer with experience developing applications for E-Commerce, Mobile Device Management, Apartment Society Management and working on the Android DevicePolicyManager Framework.
                       >-
-                     skilled in Android, Kotlin, Jetpack Compose, Java, CI/CD, Jenkins, Algorithms, and design patterns. familiar with the most recent Android architectures and frameworks
+                    Native Android Engineer with experience developing applications for E-Commerce, Mobile Device Management, Apartment Society Management and working on the Android DevicePolicyManager Framework. 
+
+                    Skilled in Android, Kotlin, Jetpack Compose, Java, CI/CD, Algorithms, and design patterns. familiar with the most recent Android architectures and frameworks.
 baseurl             : ""                     # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
 repository          : santhoshj001/santhoshj001.github.io    # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
 remote_theme        : YoussefRaafatNasry/portfolYOU
