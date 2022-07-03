@@ -1,6 +1,5 @@
 ---
 name:  Aums Android App
-style: fill
 tools: [Java, Android ,Json]
 image: https://dt19wmazj2dns.cloudfront.net/wp-content/uploads/2021/01/New-Project-1.jpg
 description: In collaboration with Amrita Technologies, developed an official Android app for the Amrita University Management System
