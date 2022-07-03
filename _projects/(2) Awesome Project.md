@@ -1,7 +1,7 @@
 ---
 name:  Aums Android App
 tools: [Java, Android ,Json]
-image: https://www.sketchappsources.com/resources/source-image/movie-badges-jurajjurik.png
+image: https://dt19wmazj2dns.cloudfront.net/wp-content/uploads/2021/01/New-Project-1.jpg
 description: In collaboration with Amrita Technologies, developed an official Android app for the Amrita University Management System
 ---
 
