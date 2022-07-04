@@ -13,7 +13,7 @@ If the container is an Entity, these sub fields will be columns in the Entity's 
 
 For example, if you have 2 classes:
 
-```JAVA
+```java
 data class Coordinates (
   val latitude: Double,
   val longitude: Double
