@@ -32,7 +32,8 @@ To include this view as part of your app's database, include the views property 
 
 ```java
 @Database(entities = [User::class],
-          views =[UserDetail::class], version = 1)
+        views =[UserDetail::class],
+        version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
 }

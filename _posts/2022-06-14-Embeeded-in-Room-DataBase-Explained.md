@@ -1,5 +1,5 @@
 ---
-title: Embedded in ROOM Database
+title: Embedded in Room Database
 tags: [Android, Room]
 comments: false
 description: Embeded anotation in Room Explained.
