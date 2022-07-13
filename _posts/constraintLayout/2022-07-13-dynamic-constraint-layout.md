@@ -14,12 +14,9 @@ Actually, we can programmatically specify the constraints. To do this in a const
     constraintSet.clone(layout)
 ```
 <br>
-
 Once created the ConstaintSet we can set the contraints like the example 
 here we are defining the constraint betweeen button1 and button2 
-
 <br>
-
 ```java
 constraintSet.connect(button1.id, ConstraintSet.BOTTOM, button2.id, ConstraintSet.TOP)
 ```
