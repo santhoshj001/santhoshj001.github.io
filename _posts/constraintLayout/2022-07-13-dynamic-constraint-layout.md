@@ -13,7 +13,6 @@ Actually, we can programmatically specify the constraints. To do this in a const
     var constraintSet = ConstraintSet()
     constraintSet.clone(layout)
 ```
-<br>
 Once created the ConstaintSet we can set the contraints like the example 
 here we are defining the constraint betweeen button1 and button2 
 <br>
