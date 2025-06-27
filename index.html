@@ -145,10 +145,18 @@
             
             .resume-viewer {
                 height: 400vh;
+                width: 100%;
+                border-radius: 5px;
+                margin: 10px 0;
             }
             
             .container {
-                margin: 10px;
+                margin: 5px;
+                border-radius: 10px;
+            }
+            
+            .content {
+                padding: 15px;
             }
             
             .header-content {
@@ -172,6 +180,12 @@
             
             .contact-links {
                 justify-content: center;
+                gap: 10px;
+            }
+            
+            .contact-links a {
+                font-size: 0.8rem;
+                padding: 6px 12px;
             }
         }
     </style>
@@ -184,24 +198,31 @@
             const viewportWidth = window.innerWidth;
             
             let calculatedHeight;
+            let pdfSrc = 'resume/Santhosh_Senior_Android_Engineer_Resume_2025_June.pdf.pdf#toolbar=0&navpanes=0&scrollbar=0';
             
             // Estimate height based on screen size (typical resume is 1-2 pages)
             if (viewportWidth > 1200) {
                 // Desktop: assume 2 pages visible, each page ~1.4 times screen height
                 calculatedHeight = viewportHeight * 2.8;
+                pdfSrc += '&view=FitH&zoom=page-width';
             } else if (viewportWidth > 768) {
                 // Tablet: pages are taller relative to screen
                 calculatedHeight = viewportHeight * 3.5;
+                pdfSrc += '&view=FitH&zoom=page-width';
             } else {
-                // Mobile: pages are much taller relative to screen
-                calculatedHeight = viewportHeight * 4.5;
+                // Mobile: use larger zoom for better readability
+                calculatedHeight = viewportHeight * 5.5;
+                pdfSrc += '&view=FitV&zoom=150';
             }
             
             // Ensure minimum height for any resume
             calculatedHeight = Math.max(calculatedHeight, 2000);
             
             iframe.style.height = calculatedHeight + 'px';
+            iframe.src = pdfSrc;
+            
             console.log(`Set PDF height to: ${calculatedHeight}px for viewport: ${viewportWidth}x${viewportHeight}`);
+            console.log(`PDF source: ${pdfSrc}`);
         }
         
         // Run when page loads
@@ -231,7 +252,6 @@
                             <a href="mailto:santhoshj296@gmail.com" target="_blank">📧 Email</a>
                             <a href="https://linkedin.com/in/santhoshj001" target="_blank">💼 LinkedIn</a>
                             <a href="https://github.com/santhoshj001" target="_blank">💻 GitHub</a>
-                            <a href="https://twitter.com/santhoshj001" target="_blank">🐦 Twitter</a>
                         </div>
                     </div>
                 </div>
@@ -244,6 +264,7 @@
             <iframe 
                 src="resume/Santhosh_Senior_Android_Engineer_Resume_2025_June.pdf.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width" 
                 class="resume-viewer"
+                id="pdfViewer"
                 title="Santhosh J Resume">
                 <p>Your browser doesn't support PDF viewing. Please <a href="resume/Santhosh_Senior_Android_Engineer_Resume_2025_June.pdf.pdf" download>download the resume</a> instead.</p>
             </iframe>
