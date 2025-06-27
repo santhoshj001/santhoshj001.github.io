@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santhosh J - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .title-section {
+            text-align: left;
+        }
+
+        .title-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .title-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .action-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 20px;
+        }
+
+        .content {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .resume-viewer {
+            width: 100%;
+            height: 100vh;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+
+
+
+
+
+        .contact-section h3 {
+            color: white;
+            margin: 0 0 15px 0;
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: right;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .contact-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .download-btn-link {
+            background: rgba(102, 126, 234, 0.2) !important;
+            border-color: rgba(102, 126, 234, 0.4) !important;
+            font-weight: 600 !important;
+        }
+
+        .download-btn-link:hover {
+            background: rgba(102, 126, 234, 0.3) !important;
+            border-color: rgba(102, 126, 234, 0.5) !important;
+        }
+
+        @media (max-width: 768px) {
+            .title-section h1 {
+                font-size: 2rem;
+            }
+            
+            .title-section p {
+                font-size: 1rem;
+            }
+            
+            .resume-viewer {
+                height: 400vh;
+            }
+            
+            .container {
+                margin: 10px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .title-section {
+                text-align: center;
+            }
+            
+            .action-section {
+                align-items: center;
+                width: 100%;
+            }
+            
+            .contact-section h3 {
+                text-align: center;
+            }
+            
+            .contact-links {
+                justify-content: center;
+            }
+        }
+    </style>
+    <script>
+        function adjustPDFHeight() {
+            const iframe = document.querySelector('.resume-viewer');
+            
+            // Smart fallback based on screen size and typical resume length
+            const viewportHeight = window.innerHeight;
+            const viewportWidth = window.innerWidth;
+            
+            let calculatedHeight;
+            
+            // Estimate height based on screen size (typical resume is 1-2 pages)
+            if (viewportWidth > 1200) {
+                // Desktop: assume 2 pages visible, each page ~1.4 times screen height
+                calculatedHeight = viewportHeight * 2.8;
+            } else if (viewportWidth > 768) {
+                // Tablet: pages are taller relative to screen
+                calculatedHeight = viewportHeight * 3.5;
+            } else {
+                // Mobile: pages are much taller relative to screen
+                calculatedHeight = viewportHeight * 4.5;
+            }
+            
+            // Ensure minimum height for any resume
+            calculatedHeight = Math.max(calculatedHeight, 2000);
+            
+            iframe.style.height = calculatedHeight + 'px';
+            console.log(`Set PDF height to: ${calculatedHeight}px for viewport: ${viewportWidth}x${viewportHeight}`);
+        }
+        
+        // Run when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(adjustPDFHeight, 500); // Small delay to ensure elements are ready
+        });
+        
+        // Adjust on window resize
+        window.addEventListener('resize', adjustPDFHeight);
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <div class="title-section">
+                    <h1>Santhosh J</h1>
+                    <p>Senior Android Engineer</p>
+                </div>
+                
+                <div class="action-section">
+                    <!-- Contact Information -->
+                    <div class="contact-section">
+                        <h3>Connect with me:</h3>
+                        <div class="contact-links">
+                            <a href="resume/Santhosh_Senior_Android_Engineer_Resume_2025_June.pdf.pdf" download class="download-btn-link">📄 Download Resume</a>
+                            <a href="mailto:santhoshj296@gmail.com" target="_blank">📧 Email</a>
+                            <a href="https://linkedin.com/in/santhoshj001" target="_blank">💼 LinkedIn</a>
+                            <a href="https://github.com/santhoshj001" target="_blank">💻 GitHub</a>
+                            <a href="https://twitter.com/santhoshj001" target="_blank">🐦 Twitter</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            
+            <!-- PDF Viewer -->
+            <iframe 
+                src="resume/Santhosh_Senior_Android_Engineer_Resume_2025_June.pdf.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width" 
+                class="resume-viewer"
+                title="Santhosh J Resume">
+                <p>Your browser doesn't support PDF viewing. Please <a href="resume/Santhosh_Senior_Android_Engineer_Resume_2025_June.pdf.pdf" download>download the resume</a> instead.</p>
+            </iframe>
+        </div>
+    </div>
+</body>
+</html> 
