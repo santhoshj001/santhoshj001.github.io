@@ -3,272 +3,693 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Santhosh J - Resume</title>
+    <title>Santhosh J — Android Developer & Generative AI Engineer</title>
+    <meta name="description" content="Portfolio of Santhosh J — Android developer transitioning into Generative AI engineering. Building IoT simulators, AI tools, and open-source libraries.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0b;
+            --bg-card: #111113;
+            --bg-card-hover: #18181b;
+            --border: #27272a;
+            --text: #fafafa;
+            --text-muted: #a1a1aa;
+            --text-dim: #71717a;
+            --accent: #6366f1;
+            --accent-hover: #818cf8;
+            --accent-subtle: rgba(99, 102, 241, 0.1);
+            --green: #22c55e;
+            --green-subtle: rgba(34, 197, 94, 0.1);
+            --orange: #f97316;
+            --orange-subtle: rgba(249, 115, 22, 0.1);
+            --blue: #3b82f6;
+            --blue-subtle: rgba(59, 130, 246, 0.1);
+            --pink: #ec4899;
+            --pink-subtle: rgba(236, 72, 153, 0.1);
+            --radius: 12px;
+            --radius-sm: 8px;
         }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container {
-            max-width: 1200px;
-            width: 100%;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            margin: 20px 0;
+        a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: var(--accent-hover); }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(10, 10, 11, 0.8);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+        nav .container {
+            display: flex; align-items: center; justify-content: space-between;
+            height: 64px;
+        }
+        .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--text); }
+        .nav-logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a {
+            color: var(--text-muted); font-size: 0.9rem; font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+        .nav-cta {
+            background: var(--accent); color: #fff !important;
+            padding: 8px 20px; border-radius: 8px; font-weight: 600;
+            font-size: 0.85rem; transition: background 0.2s;
+        }
+        .nav-cta:hover { background: var(--accent-hover); color: #fff !important; }
+
+        /* HERO */
+        .hero {
+            padding: 160px 0 100px;
+            border-bottom: 1px solid var(--border);
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--green-subtle); color: var(--green);
+            padding: 6px 16px; border-radius: 100px;
+            font-size: 0.8rem; font-weight: 600; margin-bottom: 24px;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+        .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800; line-height: 1.1;
+            letter-spacing: -0.03em; margin-bottom: 20px;
+        }
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, var(--accent), var(--pink));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: 1.15rem; color: var(--text-muted);
+            max-width: 600px; line-height: 1.7; margin-bottom: 32px;
+        }
+        .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 12px 24px; border-radius: var(--radius-sm);
+            font-weight: 600; font-size: 0.9rem; transition: all 0.2s;
+            border: none; cursor: pointer;
+        }
+        .btn-primary { background: var(--accent); color: #fff; }
+        .btn-primary:hover { background: var(--accent-hover); color: #fff; }
+        .btn-secondary { background: var(--bg-card); color: var(--text); border: 1px solid var(--border); }
+        .btn-secondary:hover { background: var(--bg-card-hover); border-color: var(--text-dim); color: var(--text); }
+
+        .hero-stats {
+            display: flex; gap: 48px; margin-top: 64px;
+            padding-top: 40px; border-top: 1px solid var(--border);
+        }
+        .stat-item .stat-number { font-size: 2rem; font-weight: 800; color: var(--text); }
+        .stat-item .stat-label { font-size: 0.85rem; color: var(--text-dim); margin-top: 4px; }
+
+        /* SECTIONS */
+        section { padding: 80px 0; }
+        section:not(:last-child) { border-bottom: 1px solid var(--border); }
+
+        .section-label {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 0.8rem; font-weight: 600; color: var(--accent);
+            text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px;
+        }
+        .section-desc {
+            font-size: 1.05rem; color: var(--text-muted);
+            max-width: 600px; margin-bottom: 48px; line-height: 1.7;
         }
 
-        .header {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            padding: 30px;
+        /* ABOUT */
+        .about-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+            align-items: start;
+        }
+        .about-text p { color: var(--text-muted); margin-bottom: 16px; line-height: 1.8; }
+        .about-text p strong { color: var(--text); }
+        .journey-list { list-style: none; }
+        .journey-list li {
+            display: flex; gap: 16px; padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .journey-list li:last-child { border-bottom: none; }
+        .journey-dot {
+            width: 10px; height: 10px; border-radius: 50%;
+            margin-top: 7px; flex-shrink: 0;
+        }
+        .journey-dot.purple { background: var(--accent); }
+        .journey-dot.green { background: var(--green); }
+        .journey-dot.orange { background: var(--orange); }
+        .journey-dot.blue { background: var(--blue); }
+        .journey-content h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
+        .journey-content p { font-size: 0.85rem; color: var(--text-dim); line-height: 1.6; }
+
+        /* SKILLS */
+        .skills-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+        .skill-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 24px;
+            transition: all 0.2s;
+        }
+        .skill-card:hover { border-color: var(--accent); background: var(--bg-card-hover); }
+        .skill-icon {
+            width: 40px; height: 40px; border-radius: var(--radius-sm);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; margin-bottom: 16px;
+        }
+        .skill-icon.purple { background: var(--accent-subtle); }
+        .skill-icon.green { background: var(--green-subtle); }
+        .skill-icon.orange { background: var(--orange-subtle); }
+        .skill-icon.blue { background: var(--blue-subtle); }
+        .skill-icon.pink { background: var(--pink-subtle); }
+        .skill-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .skill-tag {
+            background: rgba(255,255,255,0.05); color: var(--text-muted);
+            padding: 4px 10px; border-radius: 6px; font-size: 0.75rem;
+            font-weight: 500;
         }
 
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .title-section {
-            text-align: left;
-        }
-
-        .title-section h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            font-weight: 300;
-        }
-
-        .title-section p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        .action-section {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
+        /* PROJECTS */
+        .projects-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 20px;
         }
+        .project-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 28px;
+            transition: all 0.25s; display: flex; flex-direction: column;
+            position: relative; overflow: hidden;
+        }
+        .project-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .project-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 2px; background: linear-gradient(90deg, var(--accent), var(--pink));
+            opacity: 0; transition: opacity 0.25s;
+        }
+        .project-card:hover::before { opacity: 1; }
+        .project-header { display: flex; align-items: start; justify-content: space-between; margin-bottom: 12px; }
+        .project-icon { font-size: 1.5rem; margin-bottom: 16px; }
+        .project-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+        .project-card h3 a { color: var(--text); }
+        .project-card h3 a:hover { color: var(--accent); }
+        .project-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; flex-grow: 1; }
+        .project-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .project-lang {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 0.8rem; color: var(--text-dim); font-weight: 500;
+        }
+        .lang-dot {
+            width: 10px; height: 10px; border-radius: 50%;
+        }
+        .lang-dot.kotlin { background: #7F52FF; }
+        .lang-dot.javascript { background: #f7df1e; }
+        .lang-dot.python { background: #3572A5; }
+        .lang-dot.go { background: #00ADD8; }
+        .lang-dot.typescript { background: #3178C6; }
+        .lang-dot.shell { background: #89e051; }
+        .lang-dot.html { background: #e34c26; }
+        .project-link { font-size: 0.85rem; font-weight: 600; }
+        .project-link:hover { color: var(--accent-hover); }
+        .project-badge {
+            font-size: 0.7rem; font-weight: 600; padding: 3px 8px;
+            border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .badge-ai { background: var(--pink-subtle); color: var(--pink); }
+        .badge-iot { background: var(--blue-subtle); color: var(--blue); }
+        .badge-android { background: var(--green-subtle); color: var(--green); }
+        .badge-tool { background: var(--orange-subtle); color: var(--orange); }
 
-        .content {
-            padding: 30px;
-            text-align: center;
+        /* EXPERIENCE */
+        .experience-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 32px; margin-bottom: 16px;
+        }
+        .exp-header { display: flex; align-items: start; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+        .exp-header h3 { font-size: 1.15rem; font-weight: 700; }
+        .exp-company { color: var(--accent); font-weight: 600; }
+        .exp-period { font-size: 0.85rem; color: var(--text-dim); }
+        .exp-details { list-style: none; }
+        .exp-details li {
+            position: relative; padding-left: 20px; margin-bottom: 8px;
+            font-size: 0.9rem; color: var(--text-muted); line-height: 1.7;
+        }
+        .exp-details li::before {
+            content: '▹'; position: absolute; left: 0; color: var(--accent);
         }
 
-        .resume-viewer {
-            width: 100%;
-            height: 100vh;
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin: 20px 0;
+        /* FOOTER */
+        footer {
+            padding: 48px 0; border-top: 1px solid var(--border);
         }
-
-
-
-
-
-        .contact-section h3 {
-            color: white;
-            margin: 0 0 15px 0;
-            font-size: 1rem;
-            font-weight: 500;
-            text-align: right;
+        .footer-content {
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 24px;
         }
-
-        .contact-links {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            flex-wrap: wrap;
-            justify-content: flex-end;
+        .footer-text { font-size: 0.85rem; color: var(--text-dim); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a {
+            color: var(--text-muted); font-size: 0.85rem; font-weight: 500;
+            transition: color 0.2s;
         }
+        .footer-links a:hover { color: var(--text); }
 
-        .contact-links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 15px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 25px;
-            color: white;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .contact-links a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-1px);
-        }
-
-        .download-btn-link {
-            background: rgba(102, 126, 234, 0.2) !important;
-            border-color: rgba(102, 126, 234, 0.4) !important;
-            font-weight: 600 !important;
-        }
-
-        .download-btn-link:hover {
-            background: rgba(102, 126, 234, 0.3) !important;
-            border-color: rgba(102, 126, 234, 0.5) !important;
-        }
-
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .title-section h1 {
-                font-size: 2rem;
-            }
-            
-            .title-section p {
-                font-size: 1rem;
-            }
-            
-            .resume-viewer {
-                height: 400vh;
-                width: 100%;
-                border-radius: 5px;
-                margin: 10px 0;
-            }
-            
-            .container {
-                margin: 5px;
-                border-radius: 10px;
-            }
-            
-            .content {
-                padding: 15px;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-            
-            .title-section {
-                text-align: center;
-            }
-            
-            .action-section {
-                align-items: center;
-                width: 100%;
-            }
-            
-            .contact-section h3 {
-                text-align: center;
-            }
-            
-            .contact-links {
-                justify-content: center;
-                gap: 10px;
-            }
-            
-            .contact-links a {
-                font-size: 0.8rem;
-                padding: 6px 12px;
-            }
+            .nav-links { display: none; }
+            .hero { padding: 120px 0 60px; }
+            .hero-stats { gap: 32px; flex-wrap: wrap; }
+            .about-grid { grid-template-columns: 1fr; gap: 32px; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr 1fr; }
+            section { padding: 60px 0; }
+        }
+        @media (max-width: 480px) {
+            .skills-grid { grid-template-columns: 1fr; }
+            .hero-stats { gap: 24px; }
+            .stat-item .stat-number { font-size: 1.5rem; }
         }
     </style>
-    <script>
-        function adjustPDFHeight() {
-            const iframe = document.querySelector('.resume-viewer');
-            
-            // Smart fallback based on screen size and typical resume length
-            const viewportHeight = window.innerHeight;
-            const viewportWidth = window.innerWidth;
-            
-            let calculatedHeight;
-            let pdfSrc = 'resume/Santhosh_Senior_Android_Engineer_Resume_2025_June.pdf.pdf#toolbar=0&navpanes=0&scrollbar=0';
-            
-            // Estimate height based on screen size (typical resume is 1-2 pages)
-            if (viewportWidth > 1200) {
-                // Desktop: assume 2 pages visible, each page ~1.4 times screen height
-                calculatedHeight = viewportHeight * 2.8;
-                pdfSrc += '&view=FitH&zoom=page-width';
-            } else if (viewportWidth > 768) {
-                // Tablet: pages are taller relative to screen
-                calculatedHeight = viewportHeight * 3.5;
-                pdfSrc += '&view=FitH&zoom=page-width';
-            } else {
-                // Mobile: use larger zoom for better readability
-                calculatedHeight = viewportHeight * 5.5;
-                pdfSrc += '&view=FitV&zoom=150';
-            }
-            
-            // Ensure minimum height for any resume
-            calculatedHeight = Math.max(calculatedHeight, 2000);
-            
-            iframe.style.height = calculatedHeight + 'px';
-            iframe.src = pdfSrc;
-            
-            console.log(`Set PDF height to: ${calculatedHeight}px for viewport: ${viewportWidth}x${viewportHeight}`);
-            console.log(`PDF source: ${pdfSrc}`);
-        }
-        
-        // Run when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(adjustPDFHeight, 500); // Small delay to ensure elements are ready
-        });
-        
-        // Adjust on window resize
-        window.addEventListener('resize', adjustPDFHeight);
-    </script>
 </head>
 <body>
+
+<!-- NAV -->
+<nav>
     <div class="container">
-        <div class="header">
-            <div class="header-content">
-                <div class="title-section">
-                    <h1>Santhosh J</h1>
-                    <p>Senior Android Engineer</p>
-                </div>
-                
-                <div class="action-section">
-                    <!-- Contact Information -->
-                    <div class="contact-section">
-                        <h3>Connect with me:</h3>
-                        <div class="contact-links">
-                            <a href="resume/Santhosh_Senior_Android_Engineer_Resume_2025_June.pdf.pdf" download class="download-btn-link">📄 Download Resume</a>
-                            <a href="mailto:santhoshj296@gmail.com" target="_blank">📧 Email</a>
-                            <a href="https://linkedin.com/in/santhoshj001" target="_blank">💼 LinkedIn</a>
-                            <a href="https://github.com/santhoshj001" target="_blank">💻 GitHub</a>
+        <div class="nav-logo">santhosh<span>.</span>dev</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="https://github.com/santhoshj001" target="_blank" class="nav-cta">GitHub</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-badge">Open to opportunities</div>
+        <h1>Android Developer<br><span class="gradient">building with AI</span></h1>
+        <p>I'm Santhosh J — a generalist engineer with deep roots in Android development, now expanding into generative AI, IoT systems, and developer tooling. I ship production-grade code across mobile, web, and infrastructure.</p>
+        <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="mailto:santhoshj296@gmail.com" class="btn btn-secondary">Get in Touch</a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-number">30+</div>
+                <div class="stat-label">Public Repositories</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4+</div>
+                <div class="stat-label">Years of Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">8+</div>
+                <div class="stat-label">Languages Used</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2025</div>
+                <div class="stat-label">AI Transition Year</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-text">
+                <div class="section-label">About Me</div>
+                <h2 class="section-title">From Android to AI</h2>
+                <p>I started my career building Android apps — <strong>Jetpack Compose, MVVM, Clean Architecture</strong>, the whole stack. I've shipped production apps, published open-source libraries, and built Android samples that demonstrate best practices.</p>
+                <p>But I've always been a generalist at heart. Over the last year, I've been <strong>teaching myself generative AI engineering</strong> — building with LLMs, RAG pipelines, voice AI, multi-agent systems, and developer tooling powered by Claude Code.</p>
+                <p>Today I work across the full stack: <strong>Go for performance-critical services, Python for AI backends, TypeScript/Next.js for web apps, Kotlin for Android</strong>, and everything in between. I believe the best engineers are the ones who can move fluidly between domains.</p>
+            </div>
+            <div>
+                <ul class="journey-list">
+                    <li>
+                        <div class="journey-dot purple"></div>
+                        <div class="journey-content">
+                            <h4>Android Foundation</h4>
+                            <p>4+ years of Kotlin, Jetpack Compose, MVVM, Clean Architecture, Coroutines, Hilt, Room, Paging3</p>
                         </div>
-                    </div>
+                    </li>
+                    <li>
+                        <div class="journey-dot green"></div>
+                        <div class="journey-content">
+                            <h4>Full-Stack Expansion</h4>
+                            <p>Built IoT simulators in Go and Python, web dashboards in SvelteKit and React, serverless backends with Supabase</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="journey-dot orange"></div>
+                        <div class="journey-content">
+                            <h4>AI Engineering (2025–Present)</h4>
+                            <p>LLM integration, RAG, voice AI, multi-agent systems, Claude Code plugins, semantic search with local embeddings</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="journey-dot blue"></div>
+                        <div class="journey-content">
+                            <h4>Open Source & Tooling</h4>
+                            <p>Published Android libraries, Claude Code plugins, developer tools used by the community</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <div class="container">
+        <div class="section-label">Skills</div>
+        <h2 class="section-title">Tech Stack</h2>
+        <p class="section-desc">A broad toolkit built across mobile, AI, web, and infrastructure — always learning, always shipping.</p>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon purple">🤖</div>
+                <h3>Generative AI</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">LLM Integration</span>
+                    <span class="skill-tag">RAG Pipelines</span>
+                    <span class="skill-tag">Voice AI</span>
+                    <span class="skill-tag">Multi-Agent Systems</span>
+                    <span class="skill-tag">Semantic Search</span>
+                    <span class="skill-tag">Vertex AI</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon green">📱</div>
+                <h3>Android / Kotlin</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Jetpack Compose</span>
+                    <span class="skill-tag">MVVM</span>
+                    <span class="skill-tag">Clean Architecture</span>
+                    <span class="skill-tag">Coroutines</span>
+                    <span class="skill-tag">Hilt</span>
+                    <span class="skill-tag">Room</span>
+                    <span class="skill-tag">Paging3</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon blue">🌐</div>
+                <h3>Web Development</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Next.js</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">SvelteKit</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">Tailwind CSS</span>
+                    <span class="skill-tag">Fastify</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon orange">⚙️</div>
+                <h3>Backend & APIs</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Go</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">FastAPI</span>
+                    <span class="skill-tag">Supabase</span>
+                    <span class="skill-tag">Deno</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon pink">🔧</div>
+                <h3>Infrastructure & DevOps</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">GitHub Actions</span>
+                    <span class="skill-tag">GHCR</span>
+                    <span class="skill-tag">MQTT</span>
+                    <span class="skill-tag">Home Assistant</span>
+                    <span class="skill-tag">Nginx</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon green">🧪</div>
+                <h3>Testing & Quality</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">pytest</span>
+                    <span class="skill-tag">JUnit</span>
+                    <span class="skill-tag">CI/CD</span>
+                    <span class="skill-tag">Load Testing</span>
+                    <span class="skill-tag">Smoke Tests</span>
                 </div>
             </div>
         </div>
-        
-        <div class="content">
-            
-            <!-- PDF Viewer -->
-            <iframe 
-                src="resume/Santhosh_Senior_Android_Engineer_Resume_2025_June.pdf.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width" 
-                class="resume-viewer"
-                id="pdfViewer"
-                title="Santhosh J Resume">
-                <p>Your browser doesn't support PDF viewing. Please <a href="resume/Santhosh_Senior_Android_Engineer_Resume_2025_June.pdf.pdf" download>download the resume</a> instead.</p>
-            </iframe>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <div class="container">
+        <div class="section-label">Projects</div>
+        <h2 class="section-title">What I've Built</h2>
+        <p class="section-desc">Selected projects from the last 6 months — spanning AI tools, IoT platforms, Android libraries, and developer tooling.</p>
+        <div class="projects-grid">
+
+            <!-- VoiceRead -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-badge badge-ai">AI</div>
+                    <a href="https://github.com/santhoshj001/VoiceRead" target="_blank" class="project-link">View →</a>
+                </div>
+                <div class="project-icon">🎧</div>
+                <h3><a href="https://github.com/santhoshj001/VoiceRead" target="_blank">VoiceRead</a></h3>
+                <p class="project-desc">A local-first PDF listening app — upload any PDF and listen with natural AI voices powered by Sarvam AI TTS. Real-time sentence highlighting, ~40 Indian English voices, smart audio caching. A self-hosted alternative to Speechify.</p>
+                <div class="project-meta">
+                    <span class="project-lang"><span class="lang-dot javascript"></span> JavaScript</span>
+                    <span class="project-lang">Next.js + Fastify + SQLite</span>
+                </div>
+            </div>
+
+            <!-- Engram -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-badge badge-ai">AI</div>
+                    <a href="https://github.com/santhoshj001/engram" target="_blank" class="project-link">View →</a>
+                </div>
+                <div class="project-icon">🧠</div>
+                <h3><a href="https://github.com/santhoshj001/engram" target="_blank">Engram</a></h3>
+                <p class="project-desc">Semantic memory for Claude Code — find any past session by meaning, not keywords. Local-first embeddings with ONNX, SQLite vector search, automatic session indexing via hooks. Search the way you think.</p>
+                <div class="project-meta">
+                    <span class="project-lang"><span class="lang-dot javascript"></span> JavaScript</span>
+                    <span class="project-lang">ONNX + SQLite-vec</span>
+                </div>
+            </div>
+
+            <!-- TeamWright -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-badge badge-ai">AI</div>
+                    <a href="https://github.com/santhoshj001/teamwright" target="_blank" class="project-link">View →</a>
+                </div>
+                <div class="project-icon">🤝</div>
+                <h3><a href="https://github.com/santhoshj001/teamwright" target="_blank">TeamWright</a></h3>
+                <p class="project-desc">Claude Code plugin that plans, designs, creates, and launches complete multi-agent teams from a single goal. 12-step orchestration pipeline with 3-layer validation and resilient recovery.</p>
+                <div class="project-meta">
+                    <span class="project-lang"><span class="lang-dot shell"></span> Shell</span>
+                    <span class="project-lang">Claude Code Plugin</span>
+                </div>
+            </div>
+
+            <!-- Nodrithm Dev Simulator -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-badge badge-iot">IoT</div>
+                    <a href="https://github.com/santhoshj001/nodrithm-dev-simulator" target="_blank" class="project-link">View →</a>
+                </div>
+                <div class="project-icon">🏠</div>
+                <h3><a href="https://github.com/santhoshj001/nodrithm-dev-simulator" target="_blank">Nodrithm Dev Simulator</a></h3>
+                <p class="project-desc">Production-grade IoT simulator for smart hostel management. Simulates 10,000+ virtual smart switches with realistic energy patterns, Home Assistant auto-discovery, real-time SvelteKit dashboard, and Go backend. Single Docker image, multi-arch support.</p>
+                <div class="project-meta">
+                    <span class="project-lang"><span class="lang-dot go"></span> Go</span>
+                    <span class="project-lang">SvelteKit + MQTT</span>
+                </div>
+            </div>
+
+            <!-- Nodrithm PowerHub -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-badge badge-iot">IoT</div>
+                    <a href="https://github.com/santhoshj001/nodrithm-powerhub" target="_blank" class="project-link">View →</a>
+                </div>
+                <div class="project-icon">⚡</div>
+                <h3><a href="https://github.com/santhoshj001/nodrithm-powerhub" target="_blank">Nodrithm PowerHub</a></h3>
+                <p class="project-desc">IoT device simulator for testing smart home automation. Emulates Shelly 1PM Mini Gen4 switches with full RPC-based MQTT, Home Assistant discovery, pytest suite (80% coverage), and React dashboard. 6+ months of iterative development.</p>
+                <div class="project-meta">
+                    <span class="project-lang"><span class="lang-dot python"></span> Python</span>
+                    <span class="project-lang">FastAPI + React</span>
+                </div>
+            </div>
+
+            <!-- VoiceKeyboard -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-badge badge-android">Android</div>
+                    <a href="https://github.com/santhoshj001/voicekeyboard" target="_blank" class="project-link">View →</a>
+                </div>
+                <div class="project-icon">🎤</div>
+                <h3><a href="https://github.com/santhoshj001/voicekeyboard" target="_blank">VoiceKeyboard</a></h3>
+                <p class="project-desc">Android app with a persistent floating bubble for speech-to-text transcription from anywhere on the device. Powered by Moonshine STT with on-device model loading, accessibility service integration, and modular MVVM Clean Architecture.</p>
+                <div class="project-meta">
+                    <span class="project-lang"><span class="lang-dot kotlin"></span> Kotlin</span>
+                    <span class="project-lang">MVVM + 4 Modules</span>
+                </div>
+            </div>
+
+            <!-- Screenshot Blocker -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-badge badge-android">Android</div>
+                    <a href="https://github.com/santhoshj001/screenshot-blocker" target="_blank" class="project-link">View →</a>
+                </div>
+                <div class="project-icon">🛡️</div>
+                <h3><a href="https://github.com/santhoshj001/screenshot-blocker" target="_blank">Screenshot Blocker</a></h3>
+                <p class="project-desc">Production-ready Android library that prevents screenshots and screen recording using FLAG_SECURE. Zero dependencies, JitPack-published, used in production apps. Supports API 21+ with one-line initialization.</p>
+                <div class="project-meta">
+                    <span class="project-lang"><span class="lang-dot kotlin"></span> Kotlin</span>
+                    <span class="project-lang">JitPack · v1.3.0</span>
+                </div>
+            </div>
+
+            <!-- macOS Storage Cleanup -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-badge badge-tool">Tool</div>
+                    <a href="https://github.com/santhoshj001/macos-storage-cleanup-plugin" target="_blank" class="project-link">View →</a>
+                </div>
+                <div class="project-icon">🧹</div>
+                <h3><a href="https://github.com/santhoshj001/macos-storage-cleanup-plugin" target="_blank">macOS Storage Cleanup</a></h3>
+                <p class="project-desc">Claude Code plugin for comprehensive macOS storage analysis — scans Xcode DerivedData, Android Studio caches, Docker images, iOS backups, and more. Safe trash-based cleanup with two-tier safety and dry-run by default.</p>
+                <div class="project-meta">
+                    <span class="project-lang"><span class="lang-dot shell"></span> Shell</span>
+                    <span class="project-lang">Claude Code Plugin</span>
+                </div>
+            </div>
+
+            <!-- Clearscope -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-badge badge-ai">AI</div>
+                    <a href="https://github.com/santhoshj001/clearscope" target="_blank" class="project-link">View →</a>
+                </div>
+                <div class="project-icon">🏥</div>
+                <h3><a href="https://github.com/santhoshj001/clearscope" target="_blank">Clearscope</a></h3>
+                <p class="project-desc">AI-powered medical imaging analysis using Google's MedGemma multimodal LLM via Vertex AI. Clean Architecture with Hexagonal patterns, FastAPI backend, Next.js frontend, PostgreSQL. Upload X-rays, get AI analysis.</p>
+                <div class="project-meta">
+                    <span class="project-lang"><span class="lang-dot python"></span> Python</span>
+                    <span class="project-lang">FastAPI + Next.js + Vertex AI</span>
+                </div>
+            </div>
+
+            <!-- Bedrock HMS -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-badge badge-tool">Tool</div>
+                    <a href="https://github.com/santhoshj001/bedrock-hms" target="_blank" class="project-link">View →</a>
+                </div>
+                <div class="project-icon">🏨</div>
+                <h3><a href="https://github.com/santhoshj001/bedrock-hms" target="_blank">Bedrock HMS</a></h3>
+                <p class="project-desc">Hostel management platform built on Supabase Edge Functions with TypeScript/Deno and PostgreSQL Row-Level Security. 22 edge functions covering full CRUD with role-based access control and automatic audit trails.</p>
+                <div class="project-meta">
+                    <span class="project-lang"><span class="lang-dot typescript"></span> TypeScript</span>
+                    <span class="project-lang">Supabase + Deno + RLS</span>
+                </div>
+            </div>
+
         </div>
     </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+    <div class="container">
+        <div class="section-label">Experience</div>
+        <h2 class="section-title">Where I've Worked</h2>
+        <p class="section-desc">My professional journey from Android engineer to a generalist building across the full stack.</p>
+
+        <div class="experience-card">
+            <div class="exp-header">
+                <div>
+                    <h3>Senior Android Engineer</h3>
+                    <div class="exp-company">Nodrithm</div>
+                </div>
+                <div class="exp-period">2022 – Present</div>
+            </div>
+            <ul class="exp-details">
+                <li>Built and maintained production Android apps using Jetpack Compose, MVVM Clean Architecture, and Hilt dependency injection</li>
+                <li>Designed and implemented IoT device simulation platforms in Go and Python for testing smart home automation at scale</li>
+                <li>Architected full-stack solutions including MQTT infrastructure, Home Assistant integrations, and real-time web dashboards</li>
+                <li>Published open-source Android libraries (Screenshot Blocker) used by the developer community</li>
+                <li>Led the transition from legacy Python simulator to a high-performance Go-based platform with 10,000+ device capacity</li>
+            </ul>
+        </div>
+
+        <div class="experience-card">
+            <div class="exp-header">
+                <div>
+                    <h3>Generative AI Engineer (Self-Directed)</h3>
+                    <div class="exp-company">Independent Projects</div>
+                </div>
+                <div class="exp-period">2025 – Present</div>
+            </div>
+            <ul class="exp-details">
+                <li>Built AI-powered applications integrating LLMs, voice synthesis (Sarvam AI), and multimodal models (MedGemma via Vertex AI)</li>
+                <li>Developed Claude Code plugins for multi-agent orchestration (TeamWright), semantic memory (Engram), and system tooling</li>
+                <li>Implemented local-first AI features: ONNX embeddings, SQLite vector search, semantic session recall</li>
+                <li>Designed RAG pipelines, voice AI agents, and multi-agent systems with validation and recovery patterns</li>
+                <li>Created developer tools and plugins used by the AI engineering community</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-text">Built by Santhosh J. Powered by curiosity and caffeine.</div>
+            <div class="footer-links">
+                <a href="https://github.com/santhoshj001" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/santhoshj001" target="_blank">LinkedIn</a>
+                <a href="mailto:santhoshj296@gmail.com">Email</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
 </body>
-</html> 
+</html>
